@@ -29,7 +29,7 @@ export class HomeComponent {
 
   getAll() {
     this.airService.getAir().subscribe((response: any) => {
-      console.log(response);
+      //console.log(response);
       this.flightList = response;
       //this.flightListBackup = response;
     });
