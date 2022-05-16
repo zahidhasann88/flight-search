@@ -1,0 +1,51 @@
+<div style="height:2rem"></div>
+<div class="container">
+    <div class="booking-form">
+        <h5>Book Flight? Please Fill Up The Form</h5>
+        <form [formGroup]="bookingForm" (ngSubmit)="sendMessage()">
+        <div class="form row">
+          <div class="form-group col">
+            <label for="form-departure">Departure airport code</label>
+            <input type="text" id="form-departure" class="form-control" placeholder="Departure airport code" formControlName="departure" autocomplete="off" />
+            <span class="error" style="color: red; font-size: 13px;" *ngIf="departure && departure.invalid && departure?.dirty && departure.touched">Departure is Required</span>
+          </div>
+          <div class="form-group col">
+            <label for="form-arrival">Arrival airport code</label>
+            <input type="text" id="form-arrival" class="form-control" placeholder="Arrival airport code" formControlName="arrival" autocomplete="off" />
+            <span class="error" style="color: red; font-size: 13px;" *ngIf="arrival && arrival.invalid && arrival?.dirty &&  arrival.touched">Arrival is Required</span>
+          </div>
+          <div class="form-group col">
+            <label for="form-departureDate">Departure Date</label>
+            <input type="date" id="form-departureDate" class="form-control" placeholder="Departure Date" formControlName="departureDate" />
+            <span class="error" style="color: red; font-size: 13px;" *ngIf="departureDate && departureDate.invalid && departureDate.touched">Departure Date is Required</span>
+          </div>
+          <div class="form-group col">
+            <label for="form-returnDate">Return Date</label>
+            <input type="date" id="form-returnDate" class="form-control" placeholder="Return Date" formControlName="returnDate" />
+            <span class="error" style="color: red; font-size: 13px;" *ngIf="returnDate && returnDate.invalid && returnDate.touched">Return Date is Required</span>
+          </div>
+        </div>
+        <div style="height:1rem"></div>
+        <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid">Submit</button>
+      </form>
+      </div>
+      <div style="height:1rem"></div>
+    <table class="table table-bordered" id="dataTable">
+      <thead>
+        <tr style="cursor: pointer">
+          <th scope="col">Departure Airport Code &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col">Arrival Airport Code &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col">Departure Date &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col">Return Date &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ag-row">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

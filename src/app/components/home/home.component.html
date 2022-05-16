@@ -1,0 +1,36 @@
+<div style="height:1rem"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h5>Flight List</h5>
+      </div>
+      <div class="col"></div>
+      <div class="col">
+        <div class="searching-flight">
+          <input type="text" class="form-control" name="search"  [(ngModel)]="searchFlight" (keypress)="keyPressAlphanumeric($event)" placeholder="Search Flight" maxlength="10"/>
+        </div>
+      </div>
+    </div>
+    <div style="height:1rem"></div>
+    <table class="table table-bordered" id="dataTable">
+      <thead>
+        <tr style="cursor: pointer">
+          <th scope="col" class="text-center">Address</th>
+          <th scope="col" (click)="toggleSort(0)">Airline name &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" (click)="toggleSort(1)">Outbound flight duration &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" (click)="toggleSort(2)">Inbound flight duration &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" (click)="toggleSort(3)">Total amount in USD &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of flightList |filter:searchFlight | paginate: { itemsPerPage: 10, currentPage: p }" class="ag-row">
+          <td class="text-center"><img class="img-responsive" src={{dataItem.AirlineLogoAddress}} alt="logo" /></td>
+          <td>{{dataItem.AirlineName}}</td>
+          <td>{{dataItem.OutboundFlightsDuration}}</td>
+          <td>{{dataItem.InboundFlightsDuration}}</td>
+          <td>{{dataItem.TotalAmount}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+  </div>
