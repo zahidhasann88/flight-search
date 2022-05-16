@@ -4,23 +4,13 @@ import { AirSerivceService } from './../../air-serivce.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-
   flightList: any[] = [];
-  //flightListBackup: any[] = [];
   searchFlight: any;
   searching = false;
   sortDirections: number[] = [0, 0, 0, 0];
-  // pagingConfig: any = {
-  //   startLimit: 1,
-  //   endLimit: 1,
-  //   currentPage: 1,
-  //   itemsPerPage: 10,
-  //   totalItems: 0
-  // };
-
   p: number = 1;
 
   constructor(private airService: AirSerivceService) {
@@ -31,7 +21,6 @@ export class HomeComponent {
     this.airService.getAir().subscribe((response: any) => {
       //console.log(response);
       this.flightList = response;
-      //this.flightListBackup = response;
     });
   }
 

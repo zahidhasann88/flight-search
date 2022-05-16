@@ -6,12 +6,12 @@
         <div class="form row">
           <div class="form-group col">
             <label for="form-departure">Departure airport code</label>
-            <input type="text" id="form-departure" class="form-control" placeholder="Departure airport code" formControlName="departure" (keypress)="keyPressAlphanumeric($event)" autocomplete="off" />
+            <input type="text" id="form-departure" class="form-control" placeholder="Departure airport code" formControlName="departure" (keypress)="keyPressAlphanumeric($event)" autocomplete="off" maxlength="3" />
             <span class="error" style="color: red; font-size: 13px;" *ngIf="departure && departure.invalid && departure?.dirty && departure.touched">Departure is Required</span>
           </div>
           <div class="form-group col">
             <label for="form-arrival">Arrival airport code</label>
-            <input type="text" id="form-arrival" class="form-control" placeholder="Arrival airport code" formControlName="arrival" (keypress)="keyPressAlphanumeric($event)" autocomplete="off" />
+            <input type="text" id="form-arrival" class="form-control" placeholder="Arrival airport code" formControlName="arrival" (keypress)="keyPressAlphanumeric($event)" autocomplete="off" maxlength="3" />
             <span class="error" style="color: red; font-size: 13px;" *ngIf="arrival && arrival.invalid && arrival?.dirty &&  arrival.touched">Arrival is Required</span>
           </div>
           <div class="form-group col">
